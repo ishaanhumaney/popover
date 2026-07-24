@@ -1,0 +1,119 @@
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    background-color: #fcf8ee;
+    color: #333;
+    padding: 2rem;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.demo-grid p {
+    margin: 2rem 0;
+    font-size: 1.1rem;
+}
+
+.tooltip {
+    position: relative;
+    border-bottom: 2px dashed #3b82f6;
+    color: #3b82f6;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.tooltip::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    background-color: #1e293b;
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    z-index: 10;
+}
+
+.tooltip::after {
+    content: "";
+    position: absolute;
+    border: 6px solid transparent;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    z-index: 10;
+}
+
+.tooltip:hover::before,
+.tooltip:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+.tooltip.top::before {
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-8px);
+}
+.tooltip.top::after {
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-top-color: #1e293b;
+}
+.tooltip.top:hover::before {
+    transform: translateX(-50%) translateY(-12px);
+}
+
+.tooltip.bottom::before {
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(8px);
+}
+.tooltip.bottom::after {
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-bottom-color: #1e293b;
+}
+.tooltip.bottom:hover::before {
+    transform: translateX(-50%) translateY(12px);
+}
+
+.tooltip.left::before {
+    right: 100%;
+    top: 50%;
+    transform: translateY(-50%) translateX(-8px);
+}
+.tooltip.left::after {
+    right: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    border-left-color: #1e293b;
+}
+.tooltip.left:hover::before {
+    transform: translateY(-50%) translateX(-12px);
+}
+
+.tooltip.right::before {
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%) translateX(8px);
+}
+.tooltip.right::after {
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    border-right-color: #1e293b;
+}
+.tooltip.right:hover::before {
+    transform: translateY(-50%) translateX(12px);
+}
