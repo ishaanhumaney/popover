@@ -1,0 +1,19 @@
+name: Code Health Check
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Validate HTML Markup
+        uses: CybozuLab/html5validator-action@v2
+        with:
+          root: '.'
