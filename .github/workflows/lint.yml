@@ -13,7 +13,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Validate HTML Markup
-        uses: CybozuLab/html5validator-action@v2
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
-          root: '.'
+          python-version: '3.x'
+
+      - name: Install HTML5 Validator
+        run: pip install html5validator
+
+      - name: Validate HTML Markup
+        run: html5validator --root .
